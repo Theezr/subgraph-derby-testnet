@@ -3,12 +3,12 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: Race
+    name: Game
     network: mumbai
     source:
-      address: "0x388d51FB783589B62c9b781b4Fdf70bD042eD1F0"
-      abi: Race
-      startBlock: 36467953
+      address: "0x12fb9A6De243f39FF1027CbE41f5C887F42Ce478"
+      abi: Game
+      startBlock: 36552353
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -17,10 +17,11 @@ dataSources:
         - BasketId
         - PushProtocolAllocations
         - PushedAllocationsToController
+        - RebalancedBasket
         - Transfer
       abis:
-        - name: Race
-          file: ./abis/Race.json
+        - name: Game
+          file: ./abis/Game.json
       eventHandlers:
         - event: BasketId(address,uint256)
           handler: handleBasketId
@@ -28,6 +29,8 @@ dataSources:
           handler: handlePushProtocolAllocations
         - event: PushedAllocationsToController(uint256,int256[])
           handler: handlePushedAllocationsToController
+        - event: RebalancedBasket(uint256)
+          handler: handleRebalancedBasket
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/race.ts
+      file: ./src/game.ts

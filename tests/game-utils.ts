@@ -1,11 +1,61 @@
 import { newMockEvent } from "matchstick-as"
 import { ethereum, Address, BigInt } from "@graphprotocol/graph-ts"
 import {
+  Approval,
+  ApprovalForAll,
   BasketId,
   PushProtocolAllocations,
   PushedAllocationsToController,
+  RebalancedBasket,
   Transfer
-} from "../generated/Race/Race"
+} from "../generated/Game/Game"
+
+export function createApprovalEvent(
+  owner: Address,
+  approved: Address,
+  tokenId: BigInt
+): Approval {
+  let approvalEvent = changetype<Approval>(newMockEvent())
+
+  approvalEvent.parameters = new Array()
+
+  approvalEvent.parameters.push(
+    new ethereum.EventParam("owner", ethereum.Value.fromAddress(owner))
+  )
+  approvalEvent.parameters.push(
+    new ethereum.EventParam("approved", ethereum.Value.fromAddress(approved))
+  )
+  approvalEvent.parameters.push(
+    new ethereum.EventParam(
+      "tokenId",
+      ethereum.Value.fromUnsignedBigInt(tokenId)
+    )
+  )
+
+  return approvalEvent
+}
+
+export function createApprovalForAllEvent(
+  owner: Address,
+  operator: Address,
+  approved: boolean
+): ApprovalForAll {
+  let approvalForAllEvent = changetype<ApprovalForAll>(newMockEvent())
+
+  approvalForAllEvent.parameters = new Array()
+
+  approvalForAllEvent.parameters.push(
+    new ethereum.EventParam("owner", ethereum.Value.fromAddress(owner))
+  )
+  approvalForAllEvent.parameters.push(
+    new ethereum.EventParam("operator", ethereum.Value.fromAddress(operator))
+  )
+  approvalForAllEvent.parameters.push(
+    new ethereum.EventParam("approved", ethereum.Value.fromBoolean(approved))
+  )
+
+  return approvalForAllEvent
+}
 
 export function createBasketIdEvent(
   owner: Address,
@@ -79,6 +129,23 @@ export function createPushedAllocationsToControllerEvent(
   )
 
   return pushedAllocationsToControllerEvent
+}
+
+export function createRebalancedBasketEvent(
+  basketId: BigInt
+): RebalancedBasket {
+  let rebalancedBasketEvent = changetype<RebalancedBasket>(newMockEvent())
+
+  rebalancedBasketEvent.parameters = new Array()
+
+  rebalancedBasketEvent.parameters.push(
+    new ethereum.EventParam(
+      "basketId",
+      ethereum.Value.fromUnsignedBigInt(basketId)
+    )
+  )
+
+  return rebalancedBasketEvent
 }
 
 export function createTransferEvent(

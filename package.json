@@ -1,13 +1,13 @@
 {
-  "name": "derby-testnet",
+  "name": "derby-test",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ derby-testnet",
-    "create-local": "graph create --node http://localhost:8020/ derby-testnet",
-    "remove-local": "graph remove --node http://localhost:8020/ derby-testnet",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 derby-testnet",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ derby-test",
+    "create-local": "graph create --node http://localhost:8020/ derby-test",
+    "remove-local": "graph remove --node http://localhost:8020/ derby-test",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 derby-test",
     "test": "graph test -d"
   },
   "dependencies": {

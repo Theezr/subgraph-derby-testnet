@@ -1,8 +1,8 @@
 {
   "mumbai": {
-    "Race": {
-      "address": "0x388d51FB783589B62c9b781b4Fdf70bD042eD1F0",
-      "startBlock": 36467953
+    "Game": {
+      "address": "0x12fb9A6De243f39FF1027CbE41f5C887F42Ce478",
+      "startBlock": 36552353
     }
   }
 }

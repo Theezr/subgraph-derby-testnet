@@ -10,6 +10,58 @@ import {
   BigInt
 } from "@graphprotocol/graph-ts";
 
+export class Approval extends ethereum.Event {
+  get params(): Approval__Params {
+    return new Approval__Params(this);
+  }
+}
+
+export class Approval__Params {
+  _event: Approval;
+
+  constructor(event: Approval) {
+    this._event = event;
+  }
+
+  get owner(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get approved(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get tokenId(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+}
+
+export class ApprovalForAll extends ethereum.Event {
+  get params(): ApprovalForAll__Params {
+    return new ApprovalForAll__Params(this);
+  }
+}
+
+export class ApprovalForAll__Params {
+  _event: ApprovalForAll;
+
+  constructor(event: ApprovalForAll) {
+    this._event = event;
+  }
+
+  get owner(): Address {
+    return this._event.parameters[0].value.toAddress();
+  }
+
+  get operator(): Address {
+    return this._event.parameters[1].value.toAddress();
+  }
+
+  get approved(): boolean {
+    return this._event.parameters[2].value.toBoolean();
+  }
+}
+
 export class BasketId extends ethereum.Event {
   get params(): BasketId__Params {
     return new BasketId__Params(this);
@@ -80,6 +132,24 @@ export class PushedAllocationsToController__Params {
   }
 }
 
+export class RebalancedBasket extends ethereum.Event {
+  get params(): RebalancedBasket__Params {
+    return new RebalancedBasket__Params(this);
+  }
+}
+
+export class RebalancedBasket__Params {
+  _event: RebalancedBasket;
+
+  constructor(event: RebalancedBasket) {
+    this._event = event;
+  }
+
+  get basketId(): BigInt {
+    return this._event.parameters[0].value.toBigInt();
+  }
+}
+
 export class Transfer extends ethereum.Event {
   get params(): Transfer__Params {
     return new Transfer__Params(this);
@@ -106,9 +176,9 @@ export class Transfer__Params {
   }
 }
 
-export class Race extends ethereum.SmartContract {
-  static bind(address: Address): Race {
-    return new Race("Race", address);
+export class Game extends ethereum.SmartContract {
+  static bind(address: Address): Game {
+    return new Game("Game", address);
   }
 
   BASE_SCALE(): BigInt {

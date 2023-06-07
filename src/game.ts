@@ -2,28 +2,37 @@ import {
   BasketId as BasketIdEvent,
   PushProtocolAllocations as PushProtocolAllocationsEvent,
   PushedAllocationsToController as PushedAllocationsToControllerEvent,
+  RebalancedBasket as RebalancedBasketEvent,
   Transfer as TransferEvent
-} from "../generated/Race/Race"
+} from "../generated/Game/Game"
 import {
   BasketId,
+  Player,
   PushProtocolAllocations,
   PushedAllocationsToController,
+  RebalancedBasket,
   Transfer
 } from "../generated/schema"
 
 
 export function handleBasketId(event: BasketIdEvent): void {
-  let entity = new BasketId(
-    event.params.owner.concatI32(event.params.basketId.toI32())
+  let basket = new BasketId(
+   event.params.owner.concatI32(event.params.basketId.toI32())
   )
-  entity.owner = event.params.owner
-  entity.basketId = event.params.basketId
+  basket.owner = event.params.owner
+  basket.basketId = event.params.basketId
 
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
+  basket.blockNumber = event.block.number
+  basket.blockTimestamp = event.block.timestamp
+  basket.transactionHash = event.transaction.hash
 
-  entity.save()
+  let player = Player.load(event.params.owner);
+  if(!player) {
+    player = new Player(event.params.owner)
+    player.save()
+  }
+
+  basket.save()
 }
 
 export function handlePushProtocolAllocations(
@@ -51,6 +60,19 @@ export function handlePushedAllocationsToController(
   )
   entity.vaultNumber = event.params.vaultNumber
   entity.deltas = event.params.deltas
+
+  entity.blockNumber = event.block.number
+  entity.blockTimestamp = event.block.timestamp
+  entity.transactionHash = event.transaction.hash
+
+  entity.save()
+}
+
+export function handleRebalancedBasket(event: RebalancedBasketEvent): void {
+  let entity = new RebalancedBasket(
+    event.transaction.hash.concatI32(event.logIndex.toI32())
+  )
+  entity.basketId = event.params.basketId
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp

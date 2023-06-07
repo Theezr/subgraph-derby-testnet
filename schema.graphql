@@ -1,10 +1,16 @@
+
 type BasketId @entity(immutable: true) {
   id: Bytes!
-  owner: Bytes! # address
+  owner: Player! 
   basketId: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
+}
+
+type Player @entity {
+  id: Bytes!
+  baskets: [BasketId!]! @derivedFrom(field: "owner")
 }
 
 type PushProtocolAllocations @entity(immutable: true) {
@@ -21,6 +27,14 @@ type PushedAllocationsToController @entity(immutable: true) {
   id: Bytes!
   vaultNumber: BigInt! # uint256
   deltas: [BigInt!]! # int256[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RebalancedBasket @entity(immutable: true) {
+  id: Bytes!
+  basketId: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

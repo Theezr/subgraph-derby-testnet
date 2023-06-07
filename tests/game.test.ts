@@ -8,8 +8,8 @@ import {
   logStore
 } from "matchstick-as/assembly/index"
 import { Address, BigInt } from "@graphprotocol/graph-ts"
-import { handleBasketId } from "../src/race"
-import {  createBasketIdEvent } from "./race-utils"
+import {  handleBasketId } from "../src/game"
+import { createBasketIdEvent } from "./game-utils"
 
 // Tests structure (matchstick-as >=0.5.0)
 // https://thegraph.com/docs/en/developer/matchstick/#tests-structure-0-5-0
@@ -30,10 +30,11 @@ describe("Describe entity assertions", () => {
 
   test("BasketId created and stored", () => {
     assert.entityCount("BasketId", 1)
+    assert.entityCount("Player", 1)
     const owner = Address.fromString("0x0000000000000000000000000000000000000001")
     const basketId = BigInt.fromI32(123)
     const id = owner.concatI32(basketId.toI32()).toHexString();
-    // 0xa16081f360e3847006db660bae1c6d1b2e17ec2a is the default address used in newMockEvent() function
+
     assert.fieldEquals(
       "BasketId",
       id,
@@ -45,6 +46,13 @@ describe("Describe entity assertions", () => {
       id,
       "basketId",
       "123"
+    )
+
+    assert.fieldEquals(
+      "Player",
+      owner.toHexString(),
+      "id",
+      owner.toHexString()
     )
   })
 })
