@@ -42,7 +42,6 @@ describe('Testing game Events', () => {
       assert.entityCount('BasketId', 1);
 
       assert.fieldEquals('BasketId', basketId, 'owner', owner.toHexString());
-      assert.fieldEquals('BasketId', basketId, 'basketId', basketId);
       assert.fieldEquals('BasketId', basketId, 'vaultNumber', '2');
       assert.fieldEquals('BasketId', basketId, 'redeemedRewards', '0');
       assert.fieldEquals('BasketId', basketId, 'unredeemedRewards', '0');

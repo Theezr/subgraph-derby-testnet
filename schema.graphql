@@ -1,7 +1,6 @@
 type BasketId @entity {
   id: String!
   owner: Player!
-  basketId: BigInt! # uint256
   vaultNumber: BigInt! # uint256
   rebalancingPeriod: BigInt # uint256
   redeemedRewards: BigInt! # uint256

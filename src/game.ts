@@ -5,12 +5,10 @@ import {
   Transfer as TransferEvent,
 } from '../generated/Game/Game';
 import { BasketId, Player, RebalanceBasket, Transfer } from '../generated/schema';
-import { integer } from '@protofire/subgraph-toolkit';
 
 export function handleBasketId(event: BasketIdEvent): void {
   let basket = new BasketId(event.params.basketId.toString());
   basket.owner = event.params.owner;
-  basket.basketId = event.params.basketId;
   basket.vaultNumber = event.params.vaultNumber;
   basket.redeemedRewards = BigInt.fromI32(0);
   basket.unredeemedRewards = BigInt.fromI32(0);
