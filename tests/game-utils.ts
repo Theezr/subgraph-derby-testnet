@@ -1,78 +1,71 @@
-import { newMockEvent } from "matchstick-as"
-import { ethereum, Address, BigInt } from "@graphprotocol/graph-ts"
-import {
-  BasketId,
-  RebalancedBasket,
-  Transfer
-} from "../generated/Game/Game"
-
+import { newMockEvent } from 'matchstick-as';
+import { ethereum, Address, BigInt } from '@graphprotocol/graph-ts';
+import { BasketId, RebalanceBasket, Transfer } from '../generated/Game/Game';
 
 export function createBasketIdEvent(
   owner: Address,
   basketId: BigInt,
-  vaultNumber: BigInt
+  vaultNumber: BigInt,
 ): BasketId {
-  let basketIdEvent = changetype<BasketId>(newMockEvent())
+  let basketIdEvent = changetype<BasketId>(newMockEvent());
 
-  basketIdEvent.parameters = new Array()
+  basketIdEvent.parameters = new Array();
 
   basketIdEvent.parameters.push(
-    new ethereum.EventParam("owner", ethereum.Value.fromAddress(owner))
-  )
+    new ethereum.EventParam('owner', ethereum.Value.fromAddress(owner)),
+  );
   basketIdEvent.parameters.push(
-    new ethereum.EventParam(
-      "basketId",
-      ethereum.Value.fromUnsignedBigInt(basketId)
-    )
-  )
+    new ethereum.EventParam('basketId', ethereum.Value.fromUnsignedBigInt(basketId)),
+  );
   basketIdEvent.parameters.push(
-    new ethereum.EventParam(
-      "vaultNumber",
-      ethereum.Value.fromUnsignedBigInt(vaultNumber)
-    )
-  )
+    new ethereum.EventParam('vaultNumber', ethereum.Value.fromUnsignedBigInt(vaultNumber)),
+  );
 
-  return basketIdEvent
+  return basketIdEvent;
 }
 
-export function createRebalancedBasketEvent(
-  basketId: BigInt
-): RebalancedBasket {
-  let rebalancedBasketEvent = changetype<RebalancedBasket>(newMockEvent())
+export function createRebalanceBasketEvent(
+  basketId: BigInt,
+  rebalancingPeriod: BigInt,
+  unredeemedRewards: BigInt,
+  redeemedRewards: BigInt,
+): RebalanceBasket {
+  let rebalancedBasketEvent = changetype<RebalanceBasket>(newMockEvent());
 
-  rebalancedBasketEvent.parameters = new Array()
+  rebalancedBasketEvent.parameters = new Array();
 
   rebalancedBasketEvent.parameters.push(
+    new ethereum.EventParam('basketId', ethereum.Value.fromUnsignedBigInt(basketId)),
+  );
+  rebalancedBasketEvent.parameters.push(
     new ethereum.EventParam(
-      "basketId",
-      ethereum.Value.fromUnsignedBigInt(basketId)
-    )
-  )
+      'rebalancingPeriod',
+      ethereum.Value.fromUnsignedBigInt(rebalancingPeriod),
+    ),
+  );
+  rebalancedBasketEvent.parameters.push(
+    new ethereum.EventParam(
+      'unredeemedRewards',
+      ethereum.Value.fromUnsignedBigInt(unredeemedRewards),
+    ),
+  );
+  rebalancedBasketEvent.parameters.push(
+    new ethereum.EventParam('redeemedRewards', ethereum.Value.fromUnsignedBigInt(redeemedRewards)),
+  );
 
-  return rebalancedBasketEvent
+  return rebalancedBasketEvent;
 }
 
-export function createTransferEvent(
-  from: Address,
-  to: Address,
-  tokenId: BigInt
-): Transfer {
-  let transferEvent = changetype<Transfer>(newMockEvent())
+export function createTransferEvent(from: Address, to: Address, tokenId: BigInt): Transfer {
+  let transferEvent = changetype<Transfer>(newMockEvent());
 
-  transferEvent.parameters = new Array()
+  transferEvent.parameters = new Array();
 
+  transferEvent.parameters.push(new ethereum.EventParam('from', ethereum.Value.fromAddress(from)));
+  transferEvent.parameters.push(new ethereum.EventParam('to', ethereum.Value.fromAddress(to)));
   transferEvent.parameters.push(
-    new ethereum.EventParam("from", ethereum.Value.fromAddress(from))
-  )
-  transferEvent.parameters.push(
-    new ethereum.EventParam("to", ethereum.Value.fromAddress(to))
-  )
-  transferEvent.parameters.push(
-    new ethereum.EventParam(
-      "tokenId",
-      ethereum.Value.fromUnsignedBigInt(tokenId)
-    )
-  )
+    new ethereum.EventParam('tokenId', ethereum.Value.fromUnsignedBigInt(tokenId)),
+  );
 
-  return transferEvent
+  return transferEvent;
 }

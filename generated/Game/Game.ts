@@ -136,21 +136,33 @@ export class PushedAllocationsToController__Params {
   }
 }
 
-export class RebalancedBasket extends ethereum.Event {
-  get params(): RebalancedBasket__Params {
-    return new RebalancedBasket__Params(this);
+export class RebalanceBasket extends ethereum.Event {
+  get params(): RebalanceBasket__Params {
+    return new RebalanceBasket__Params(this);
   }
 }
 
-export class RebalancedBasket__Params {
-  _event: RebalancedBasket;
+export class RebalanceBasket__Params {
+  _event: RebalanceBasket;
 
-  constructor(event: RebalancedBasket) {
+  constructor(event: RebalanceBasket) {
     this._event = event;
   }
 
   get basketId(): BigInt {
     return this._event.parameters[0].value.toBigInt();
+  }
+
+  get rebalancingPeriod(): BigInt {
+    return this._event.parameters[1].value.toBigInt();
+  }
+
+  get unredeemedRewards(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+
+  get redeemedRewards(): BigInt {
+    return this._event.parameters[3].value.toBigInt();
   }
 }
 

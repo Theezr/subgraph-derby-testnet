@@ -6,7 +6,7 @@ dataSources:
     name: Game
     network: mumbai
     source:
-      address: "0xff998FD69f9F3F93e2D6B10f3e747eb7CA1B645E"
+      address: '0xff998FD69f9F3F93e2D6B10f3e747eb7CA1B645E'
       abi: Game
       startBlock: 36552353
     mapping:
@@ -15,7 +15,7 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - BasketId
-        - RebalancedBasket
+        - RebalanceBasket
         - Transfer
       abis:
         - name: Game
@@ -23,8 +23,8 @@ dataSources:
       eventHandlers:
         - event: BasketId(address,uint256,uint256)
           handler: handleBasketId
-        - event: RebalancedBasket(uint256)
-          handler: handleRebalancedBasket
+        - event: RebalanceBasket(uint256,uint256,int256,int256)
+          handler: handleRebalanceBasket
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: ./src/game.ts

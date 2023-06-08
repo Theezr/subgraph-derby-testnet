@@ -1,9 +1,11 @@
-
-type BasketId @entity(immutable: true) {
-  id: Bytes!
-  owner: Player! 
+type BasketId @entity {
+  id: String!
+  owner: Player!
   basketId: BigInt! # uint256
   vaultNumber: BigInt! # uint256
+  rebalancingPeriod: BigInt # uint256
+  redeemedRewards: BigInt! # uint256
+  unredeemedRewards: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
@@ -33,7 +35,7 @@ type PushedAllocationsToController @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type RebalancedBasket @entity(immutable: true) {
+type RebalanceBasket @entity(immutable: true) {
   id: Bytes!
   basketId: BigInt! # uint256
   blockNumber: BigInt!

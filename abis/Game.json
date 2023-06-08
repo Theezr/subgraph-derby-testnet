@@ -157,9 +157,27 @@
         "internalType": "uint256",
         "name": "basketId",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "rebalancingPeriod",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "unredeemedRewards",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "redeemedRewards",
+        "type": "int256"
       }
     ],
-    "name": "RebalancedBasket",
+    "name": "RebalanceBasket",
     "type": "event"
   },
   {
