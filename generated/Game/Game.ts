@@ -82,6 +82,10 @@ export class BasketId__Params {
   get basketId(): BigInt {
     return this._event.parameters[1].value.toBigInt();
   }
+
+  get vaultNumber(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
 }
 
 export class PushProtocolAllocations extends ethereum.Event {

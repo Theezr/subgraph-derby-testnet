@@ -1,15 +1,11 @@
 import {
   BasketId as BasketIdEvent,
-  PushProtocolAllocations as PushProtocolAllocationsEvent,
-  PushedAllocationsToController as PushedAllocationsToControllerEvent,
   RebalancedBasket as RebalancedBasketEvent,
   Transfer as TransferEvent
 } from "../generated/Game/Game"
 import {
   BasketId,
   Player,
-  PushProtocolAllocations,
-  PushedAllocationsToController,
   RebalancedBasket,
   Transfer
 } from "../generated/schema"
@@ -21,6 +17,7 @@ export function handleBasketId(event: BasketIdEvent): void {
   )
   basket.owner = event.params.owner
   basket.basketId = event.params.basketId
+  basket.vaultNumber = event.params.vaultNumber
 
   basket.blockNumber = event.block.number
   basket.blockTimestamp = event.block.timestamp
@@ -33,39 +30,6 @@ export function handleBasketId(event: BasketIdEvent): void {
   }
 
   basket.save()
-}
-
-export function handlePushProtocolAllocations(
-  event: PushProtocolAllocationsEvent
-): void {
-  let entity = new PushProtocolAllocations(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.chain = event.params.chain
-  entity.vault = event.params.vault
-  entity.deltas = event.params.deltas
-
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
-
-  entity.save()
-}
-
-export function handlePushedAllocationsToController(
-  event: PushedAllocationsToControllerEvent
-): void {
-  let entity = new PushedAllocationsToController(
-    event.transaction.hash.concatI32(event.logIndex.toI32())
-  )
-  entity.vaultNumber = event.params.vaultNumber
-  entity.deltas = event.params.deltas
-
-  entity.blockNumber = event.block.number
-  entity.blockTimestamp = event.block.timestamp
-  entity.transactionHash = event.transaction.hash
-
-  entity.save()
 }
 
 export function handleRebalancedBasket(event: RebalancedBasketEvent): void {

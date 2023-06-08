@@ -1,11 +1,31 @@
 [
   {
     "inputs": [
-      { "internalType": "string", "name": "name_", "type": "string" },
-      { "internalType": "string", "name": "symbol_", "type": "string" },
-      { "internalType": "address", "name": "_derbyToken", "type": "address" },
-      { "internalType": "address", "name": "_dao", "type": "address" },
-      { "internalType": "address", "name": "_guardian", "type": "address" }
+      {
+        "internalType": "string",
+        "name": "name_",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "symbol_",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_derbyToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_guardian",
+        "type": "address"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -73,6 +93,12 @@
         "indexed": false,
         "internalType": "uint256",
         "name": "basketId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "vaultNumber",
         "type": "uint256"
       }
     ],
@@ -164,14 +190,28 @@
   {
     "inputs": [],
     "name": "BASE_SCALE",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
     ],
     "name": "approve",
     "outputs": [],
@@ -180,55 +220,125 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "owner", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
     ],
     "name": "balanceOf",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_basketId", "type": "uint256" },
-      { "internalType": "uint256", "name": "_chainId", "type": "uint256" },
-      { "internalType": "uint256", "name": "_protocolId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_basketId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_chainId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_protocolId",
+        "type": "uint256"
+      }
     ],
     "name": "basketAllocationInProtocol",
-    "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_basketId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_basketId",
+        "type": "uint256"
+      }
     ],
     "name": "basketRedeemedRewards",
-    "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_basketId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_basketId",
+        "type": "uint256"
+      }
     ],
     "name": "basketTotalAllocatedTokens",
-    "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_basketId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_basketId",
+        "type": "uint256"
+      }
     ],
     "name": "basketUnredeemedRewards",
-    "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "name": "chainIds",
-    "outputs": [{ "internalType": "uint32", "name": "", "type": "uint32" }],
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -236,149 +346,327 @@
     "inputs": [],
     "name": "derbyToken",
     "outputs": [
-      { "internalType": "contract IERC20", "name": "", "type": "address" }
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
     ],
     "name": "getApproved",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "getChainIds",
-    "outputs": [{ "internalType": "uint32[]", "name": "", "type": "uint32[]" }],
+    "outputs": [
+      {
+        "internalType": "uint32[]",
+        "name": "",
+        "type": "uint32[]"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "getDao",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_chainId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_chainId",
+        "type": "uint256"
+      }
     ],
     "name": "getDeltaAllocationChain",
-    "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_chainId", "type": "uint256" },
-      { "internalType": "uint256", "name": "_protocolNum", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_chainId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_protocolNum",
+        "type": "uint256"
+      }
     ],
     "name": "getDeltaAllocationProtocol",
-    "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "getGuardian",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      }
     ],
     "name": "getNumberOfRewardsReceived",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      }
     ],
     "name": "getRebalancingPeriod",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "homeVault",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "owner", "type": "address" },
-      { "internalType": "address", "name": "operator", "type": "address" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "homeVault",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      }
     ],
     "name": "isApprovedForAll",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "uint32", "name": "", "type": "uint32" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
     ],
     "name": "isXChainRebalancing",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "lastTimeStamp",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "latestProtocolId",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "lastTimeStamp",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "latestProtocolId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      }
     ],
     "name": "mintNewBasket",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "name",
-    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
     ],
     "name": "ownerOf",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      }
     ],
     "name": "pushAllocationsToController",
     "outputs": [],
@@ -387,8 +675,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint32", "name": "_chain", "type": "uint32" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_chain",
+        "type": "uint32"
+      }
     ],
     "name": "pushAllocationsToVaults",
     "outputs": [],
@@ -397,7 +693,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_basketId", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "_basketId",
+        "type": "uint256"
+      },
       {
         "internalType": "int256[][]",
         "name": "_deltaAllocations",
@@ -412,22 +712,42 @@
   {
     "inputs": [],
     "name": "rebalanceInterval",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      }
     ],
     "name": "rebalanceNeeded",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_basketId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_basketId",
+        "type": "uint256"
+      }
     ],
     "name": "redeemRewards",
     "outputs": [],
@@ -436,9 +756,21 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "from", "type": "address" },
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
     ],
     "name": "safeTransferFrom",
     "outputs": [],
@@ -447,10 +779,26 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "from", "type": "address" },
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
-      { "internalType": "bytes", "name": "data", "type": "bytes" }
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
     ],
     "name": "safeTransferFrom",
     "outputs": [],
@@ -459,8 +807,16 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "operator", "type": "address" },
-      { "internalType": "bool", "name": "approved", "type": "bool" }
+      {
+        "internalType": "address",
+        "name": "operator",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "approved",
+        "type": "bool"
+      }
     ],
     "name": "setApprovalForAll",
     "outputs": [],
@@ -469,7 +825,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint32[]", "name": "_chainIds", "type": "uint32[]" }
+      {
+        "internalType": "uint32[]",
+        "name": "_chainIds",
+        "type": "uint32[]"
+      }
     ],
     "name": "setChainIds",
     "outputs": [],
@@ -478,7 +838,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_dao", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      }
     ],
     "name": "setDao",
     "outputs": [],
@@ -487,7 +851,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_derbyToken", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_derbyToken",
+        "type": "address"
+      }
     ],
     "name": "setDerbyToken",
     "outputs": [],
@@ -496,7 +864,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_guardian", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_guardian",
+        "type": "address"
+      }
     ],
     "name": "setGuardian",
     "outputs": [],
@@ -505,8 +877,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "address", "name": "_homeVault", "type": "address" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_homeVault",
+        "type": "address"
+      }
     ],
     "name": "setHomeVault",
     "outputs": [],
@@ -515,7 +895,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint32", "name": "_chainId", "type": "uint32" },
+      {
+        "internalType": "uint32",
+        "name": "_chainId",
+        "type": "uint32"
+      },
       {
         "internalType": "uint256",
         "name": "_latestProtocolId",
@@ -529,7 +913,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_factor", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_factor",
+        "type": "uint256"
+      }
     ],
     "name": "setNegativeRewardFactor",
     "outputs": [],
@@ -538,7 +926,11 @@
   },
   {
     "inputs": [
-      { "internalType": "int256", "name": "_threshold", "type": "int256" }
+      {
+        "internalType": "int256",
+        "name": "_threshold",
+        "type": "int256"
+      }
     ],
     "name": "setNegativeRewardThreshold",
     "outputs": [],
@@ -547,8 +939,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_value", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+      }
     ],
     "name": "setNumberOfRewardsReceived",
     "outputs": [],
@@ -570,9 +970,21 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint32", "name": "_chain", "type": "uint32" },
-      { "internalType": "bool", "name": "_state", "type": "bool" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_chain",
+        "type": "uint32"
+      },
+      {
+        "internalType": "bool",
+        "name": "_state",
+        "type": "bool"
+      }
     ],
     "name": "setRebalancingState",
     "outputs": [],
@@ -581,8 +993,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_tokenPrice", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenPrice",
+        "type": "uint256"
+      }
     ],
     "name": "setTokenPrice",
     "outputs": [],
@@ -591,9 +1011,21 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint32", "name": "_chainId", "type": "uint32" },
-      { "internalType": "address", "name": "_address", "type": "address" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_chainId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      }
     ],
     "name": "setVaultAddress",
     "outputs": [],
@@ -602,7 +1034,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_xProvider", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_xProvider",
+        "type": "address"
+      }
     ],
     "name": "setXProvider",
     "outputs": [],
@@ -611,9 +1047,21 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint32", "name": "_chainId", "type": "uint32" },
-      { "internalType": "int256[]", "name": "_rewards", "type": "int256[]" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_chainId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "int256[]",
+        "name": "_rewards",
+        "type": "int256[]"
+      }
     ],
     "name": "settleRewards",
     "outputs": [],
@@ -622,9 +1070,21 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint32", "name": "_chainId", "type": "uint32" },
-      { "internalType": "int256[]", "name": "_rewards", "type": "int256[]" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_chainId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "int256[]",
+        "name": "_rewards",
+        "type": "int256[]"
+      }
     ],
     "name": "settleRewardsGuard",
     "outputs": [],
@@ -633,41 +1093,91 @@
   },
   {
     "inputs": [
-      { "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }
+      {
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
     ],
     "name": "supportsInterface",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "symbol",
-    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "tokenPrice",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "tokenPrice",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
     ],
     "name": "tokenURI",
-    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "from", "type": "address" },
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      }
     ],
     "name": "transferFrom",
     "outputs": [],
@@ -677,7 +1187,13 @@
   {
     "inputs": [],
     "name": "xProvider",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   }

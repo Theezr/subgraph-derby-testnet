@@ -15,20 +15,14 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - BasketId
-        - PushProtocolAllocations
-        - PushedAllocationsToController
         - RebalancedBasket
         - Transfer
       abis:
         - name: Game
           file: ./abis/Game.json
       eventHandlers:
-        - event: BasketId(address,uint256)
+        - event: BasketId(address,uint256,uint256)
           handler: handleBasketId
-        - event: PushProtocolAllocations(uint32,address,int256[])
-          handler: handlePushProtocolAllocations
-        - event: PushedAllocationsToController(uint256,int256[])
-          handler: handlePushedAllocationsToController
         - event: RebalancedBasket(uint256)
           handler: handleRebalancedBasket
         - event: Transfer(indexed address,indexed address,indexed uint256)

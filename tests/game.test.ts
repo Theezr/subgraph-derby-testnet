@@ -19,7 +19,8 @@ describe("Describe entity assertions", () => {
   beforeAll(() => {
     const owner = Address.fromString("0x0000000000000000000000000000000000000001")
     const basketId = BigInt.fromI32(123)
-    const newBasketIdEvent = createBasketIdEvent(owner, basketId)
+    const vaultNumber = BigInt.fromI32(2)
+    const newBasketIdEvent = createBasketIdEvent(owner, basketId, vaultNumber)
     handleBasketId(newBasketIdEvent)
     logStore();
   })
@@ -46,6 +47,12 @@ describe("Describe entity assertions", () => {
       id,
       "basketId",
       "123"
+    )
+    assert.fieldEquals(
+      "BasketId",
+      id,
+      "vaultNumber",
+      "2"
     )
 
     assert.fieldEquals(

@@ -3,6 +3,7 @@ type BasketId @entity(immutable: true) {
   id: Bytes!
   owner: Player! 
   basketId: BigInt! # uint256
+  vaultNumber: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
