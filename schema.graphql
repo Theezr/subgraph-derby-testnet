@@ -19,6 +19,7 @@ type Vault @entity {
   id: String!
   name: String!
   vaultNumber: BigInt!
+  protocols: [Protocol]! @derivedFrom(field: "vault")
 }
 
 type Protocol @entity(immutable: true) {

@@ -39,13 +39,10 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - AddProtocol
-        - SetProtocolNumber
       abis:
         - name: Controller
           file: ./abis/Controller.json
       eventHandlers:
         - event: AddProtocol(string,uint256,address,address,address,address,uint256)
           handler: handleAddProtocol
-        - event: SetProtocolNumber(uint256,address)
-          handler: handleSetProtocolNumber
       file: ./src/controller.ts
