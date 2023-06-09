@@ -1,7 +1,7 @@
 type BasketId @entity {
   id: String!
   owner: Player!
-  vaultNumber: BigInt! # uint256
+  vault: Vault! # uint256
   rebalancingPeriod: BigInt # uint256
   redeemedRewards: BigInt! # uint256
   unredeemedRewards: BigInt! # uint256
@@ -15,38 +15,21 @@ type Player @entity {
   baskets: [BasketId!]! @derivedFrom(field: "owner")
 }
 
-type PushProtocolAllocations @entity(immutable: true) {
-  id: Bytes!
-  chain: BigInt! # uint32
-  vault: Bytes! # address
-  deltas: [BigInt!]! # int256[]
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type Vault @entity {
+  id: String!
+  name: String!
+  vaultNumber: BigInt!
 }
 
-type PushedAllocationsToController @entity(immutable: true) {
-  id: Bytes!
-  vaultNumber: BigInt! # uint256
-  deltas: [BigInt!]! # int256[]
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RebalanceBasket @entity(immutable: true) {
-  id: Bytes!
-  basketId: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type Transfer @entity(immutable: true) {
-  id: Bytes!
-  from: Bytes! # address
-  to: Bytes! # address
-  tokenId: BigInt! # uint256
+type Protocol @entity(immutable: true) {
+  id: String!
+  name: String! # string
+  vault: Vault! # uint256
+  provider: Bytes! # address
+  protocolLPToken: Bytes! # address
+  underlying: Bytes! # address
+  govToken: Bytes! # address
+  protocolNumber: BigInt! # uint256
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

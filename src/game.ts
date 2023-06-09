@@ -2,14 +2,13 @@ import { BigInt, Bytes } from '@graphprotocol/graph-ts';
 import {
   BasketId as BasketIdEvent,
   RebalanceBasket as RebalanceBasketEvent,
-  Transfer as TransferEvent,
 } from '../generated/Game/Game';
-import { BasketId, Player, RebalanceBasket, Transfer } from '../generated/schema';
+import { BasketId, Player } from '../generated/schema';
 
 export function handleBasketId(event: BasketIdEvent): void {
   let basket = new BasketId(event.params.basketId.toString());
   basket.owner = event.params.owner;
-  basket.vaultNumber = event.params.vaultNumber;
+  basket.vault = event.params.vaultNumber.toString();
   basket.redeemedRewards = BigInt.fromI32(0);
   basket.unredeemedRewards = BigInt.fromI32(0);
 
@@ -35,17 +34,4 @@ export function handleRebalanceBasket(event: RebalanceBasketEvent): void {
   basket.redeemedRewards = event.params.redeemedRewards;
 
   basket.save();
-}
-
-export function handleTransfer(event: TransferEvent): void {
-  let entity = new Transfer(event.transaction.hash.concatI32(event.logIndex.toI32()));
-  entity.from = event.params.from;
-  entity.to = event.params.to;
-  entity.tokenId = event.params.tokenId;
-
-  entity.blockNumber = event.block.number;
-  entity.blockTimestamp = event.block.timestamp;
-  entity.transactionHash = event.transaction.hash;
-
-  entity.save();
 }

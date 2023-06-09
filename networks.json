@@ -3,6 +3,9 @@
     "Game": {
       "address": "0x12fb9A6De243f39FF1027CbE41f5C887F42Ce478",
       "startBlock": 36552353
+    },
+    "Controller": {
+      "address": "0x51a8E25B6aA05A713E1A306240AF64601468fd58"
     }
   }
 }

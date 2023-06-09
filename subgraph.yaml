@@ -6,9 +6,9 @@ dataSources:
     name: Game
     network: mumbai
     source:
-      address: '0xff998FD69f9F3F93e2D6B10f3e747eb7CA1B645E'
+      address: '0x0eD29B22f802E442d7598566357cAa6a0Eb86E7E'
       abi: Game
-      startBlock: 36552353
+      startBlock: 36627151
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -25,6 +25,27 @@ dataSources:
           handler: handleBasketId
         - event: RebalanceBasket(uint256,uint256,int256,int256)
           handler: handleRebalanceBasket
-        - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleTransfer
       file: ./src/game.ts
+  - kind: ethereum
+    name: Controller
+    network: mumbai
+    source:
+      address: '0x51a8E25B6aA05A713E1A306240AF64601468fd58'
+      abi: Controller
+      startBlock: 36636330
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AddProtocol
+        - SetProtocolNumber
+      abis:
+        - name: Controller
+          file: ./abis/Controller.json
+      eventHandlers:
+        - event: AddProtocol(string,uint256,address,address,address,address,uint256)
+          handler: handleAddProtocol
+        - event: SetProtocolNumber(uint256,address)
+          handler: handleSetProtocolNumber
+      file: ./src/controller.ts
