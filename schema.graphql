@@ -13,6 +13,9 @@ type BasketId @entity {
 type Player @entity {
   id: Bytes!
   baskets: [BasketId!]! @derivedFrom(field: "owner")
+  address
+  performance fee
+  medals
 }
 
 type Vault @entity {
@@ -20,6 +23,10 @@ type Vault @entity {
   name: String!
   vaultNumber: BigInt!
   protocols: [Protocol]! @derivedFrom(field: "vault")
+  amount of players
+  total staked tokens
+  performance fee of players
+  performance vault
 }
 
 type Protocol @entity(immutable: true) {
@@ -33,7 +40,4 @@ type Protocol @entity(immutable: true) {
   underlying: Bytes! # address
   govToken: Bytes! # address
   protocolNumber: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
 }

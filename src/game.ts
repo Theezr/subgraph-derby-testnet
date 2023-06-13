@@ -32,6 +32,6 @@ export function handleRebalanceBasket(event: RebalanceBasketEvent): void {
   basket.rebalancingPeriod = event.params.rebalancingPeriod;
   basket.unredeemedRewards = event.params.unredeemedRewards;
   basket.redeemedRewards = event.params.redeemedRewards;
-
+// allocated tokens
   basket.save();
 }
