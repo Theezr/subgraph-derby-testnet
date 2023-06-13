@@ -11,7 +11,11 @@ export function handleAddProtocol(event: AddProtocolEvent): void {
   }
 
   let protocol = new Protocol(`${event.params.vaultNumber}-${event.params.protocolNumber}`);
-  protocol.name = event.params.name;
+  const protocolInfo = protocol.name.split("_")
+  protocol.network = protocolInfo[0];
+  protocol.protocol = protocolInfo[1];
+  protocol.name = protocolInfo[2];
+  
   protocol.vault = event.params.vaultNumber.toString();
   protocol.provider = event.params.provider;
   protocol.protocolLPToken = event.params.protocolLPToken;
