@@ -1,15 +1,10 @@
-import { AddProtocol as AddProtocolEvent } from '../generated/Controller/Controller';
+import {
+  AddProtocol as AddProtocolEvent,
+  AddVault as AddVaultEvent,
+} from '../generated/Controller/Controller';
 import { Protocol, Vault } from '../generated/schema';
 
 export function handleAddProtocol(event: AddProtocolEvent): void {
-  let vault = Vault.load(event.params.vaultNumber.toString());
-  if (!vault) {
-    vault = new Vault(event.params.vaultNumber.toString());
-    vault.vaultNumber = event.params.vaultNumber;
-    vault.name = `Derby_${event.params.vaultNumber}`;
-    vault.save();
-  }
-
   let protocol = new Protocol(`${event.params.vaultNumber}-${event.params.protocolNumber}`);
   protocol.name = event.params.name;
   protocol.vault = event.params.vaultNumber.toString();
@@ -24,4 +19,14 @@ export function handleAddProtocol(event: AddProtocolEvent): void {
   protocol.transactionHash = event.transaction.hash;
 
   protocol.save();
+}
+
+export function handleAddVault(event: AddVaultEvent): void {
+  let vault = Vault.load(event.params.vaultNumber.toString());
+  if (!vault) {
+    vault = new Vault(event.params.vaultNumber.toString());
+    vault.vaultNumber = event.params.vaultNumber;
+    vault.name = event.params.vaultName;
+    vault.save();
+  }
 }

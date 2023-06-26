@@ -1,7 +1,11 @@
 [
   {
     "inputs": [
-      { "internalType": "address", "name": "_dao", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -61,6 +65,25 @@
       {
         "indexed": false,
         "internalType": "uint256",
+        "name": "vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "vaultName",
+        "type": "string"
+      }
+    ],
+    "name": "AddVault",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
         "name": "protocolNumber",
         "type": "uint256"
       },
@@ -76,25 +99,55 @@
   },
   {
     "inputs": [
-      { "internalType": "string", "name": "_name", "type": "string" },
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "address", "name": "_provider", "type": "address" },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_provider",
+        "type": "address"
+      },
       {
         "internalType": "address",
         "name": "_protocolLPToken",
         "type": "address"
       },
-      { "internalType": "address", "name": "_underlying", "type": "address" },
-      { "internalType": "address", "name": "_govToken", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_underlying",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_govToken",
+        "type": "address"
+      }
     ],
     "name": "addProtocol",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_vault", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_vault",
+        "type": "address"
+      }
     ],
     "name": "addVault",
     "outputs": [],
@@ -103,7 +156,29 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      }
+    ],
+    "name": "addVaultTest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
       {
         "internalType": "uint256",
         "name": "_protocolNumber",
@@ -111,56 +186,128 @@
       }
     ],
     "name": "claim",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "name": "claimable",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "getDao",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_protocolNum", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_protocolNum",
+        "type": "uint256"
+      }
     ],
     "name": "getGovToken",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_protocolNum", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_protocolNum",
+        "type": "uint256"
+      }
     ],
     "name": "getProtocolBlacklist",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_protocolNum", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_protocolNum",
+        "type": "uint256"
+      }
     ],
     "name": "getProtocolInfo",
     "outputs": [
       {
         "components": [
-          { "internalType": "address", "name": "LPToken", "type": "address" },
-          { "internalType": "address", "name": "provider", "type": "address" },
-          { "internalType": "address", "name": "underlying", "type": "address" }
+          {
+            "internalType": "address",
+            "name": "LPToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "provider",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "underlying",
+            "type": "address"
+          }
         ],
         "internalType": "struct IController.ProtocolInfoS",
         "name": "",
@@ -176,9 +323,21 @@
     "outputs": [
       {
         "components": [
-          { "internalType": "address", "name": "router", "type": "address" },
-          { "internalType": "address", "name": "quoter", "type": "address" },
-          { "internalType": "uint24", "name": "poolFee", "type": "uint24" }
+          {
+            "internalType": "address",
+            "name": "router",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "quoter",
+            "type": "address"
+          },
+          {
+            "internalType": "uint24",
+            "name": "poolFee",
+            "type": "uint24"
+          }
         ],
         "internalType": "struct IController.UniswapParams",
         "name": "",
@@ -191,72 +350,166 @@
   {
     "inputs": [],
     "name": "getUniswapPoolFee",
-    "outputs": [{ "internalType": "uint24", "name": "", "type": "uint24" }],
+    "outputs": [
+      {
+        "internalType": "uint24",
+        "name": "",
+        "type": "uint24"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "getUniswapQuoter",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "latestProtocolId",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "latestProtocolId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "protocolBlacklist",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "protocolGovToken",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "protocolInfo",
     "outputs": [
-      { "internalType": "address", "name": "LPToken", "type": "address" },
-      { "internalType": "address", "name": "provider", "type": "address" },
-      { "internalType": "address", "name": "underlying", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "LPToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "provider",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "underlying",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "", "type": "uint256" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "protocolNames",
-    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_LPToken", "type": "address" },
-      { "internalType": "bool", "name": "_bool", "type": "bool" }
+      {
+        "internalType": "address",
+        "name": "_LPToken",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_bool",
+        "type": "bool"
+      }
     ],
     "name": "setClaimable",
     "outputs": [],
@@ -265,7 +518,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_dao", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_dao",
+        "type": "address"
+      }
     ],
     "name": "setDao",
     "outputs": [],
@@ -274,8 +531,16 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_vaultNumber", "type": "uint256" },
-      { "internalType": "uint256", "name": "_protocolNum", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "_vaultNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_protocolNum",
+        "type": "uint256"
+      }
     ],
     "name": "setProtocolBlacklist",
     "outputs": [],
@@ -284,7 +549,11 @@
   },
   {
     "inputs": [
-      { "internalType": "uint24", "name": "_poolFee", "type": "uint24" }
+      {
+        "internalType": "uint24",
+        "name": "_poolFee",
+        "type": "uint24"
+      }
     ],
     "name": "setUniswapPoolFee",
     "outputs": [],
@@ -293,7 +562,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_uniswapQuoter", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_uniswapQuoter",
+        "type": "address"
+      }
     ],
     "name": "setUniswapQuoter",
     "outputs": [],
@@ -302,7 +575,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "_uniswapRouter", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "_uniswapRouter",
+        "type": "address"
+      }
     ],
     "name": "setUniswapRouter",
     "outputs": [],
@@ -313,17 +590,41 @@
     "inputs": [],
     "name": "uniswapParams",
     "outputs": [
-      { "internalType": "address", "name": "router", "type": "address" },
-      { "internalType": "address", "name": "quoter", "type": "address" },
-      { "internalType": "uint24", "name": "poolFee", "type": "uint24" }
+      {
+        "internalType": "address",
+        "name": "router",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "quoter",
+        "type": "address"
+      },
+      {
+        "internalType": "uint24",
+        "name": "poolFee",
+        "type": "uint24"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "name": "vaultWhitelist",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   }

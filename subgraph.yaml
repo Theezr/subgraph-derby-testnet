@@ -39,10 +39,13 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - AddProtocol
+        - AddVault
       abis:
         - name: Controller
           file: ./abis/Controller.json
       eventHandlers:
         - event: AddProtocol(string,uint256,address,address,address,address,uint256)
           handler: handleAddProtocol
+        - event: AddVault(uint256,string)
+          handler: handleAddVault
       file: ./src/controller.ts
