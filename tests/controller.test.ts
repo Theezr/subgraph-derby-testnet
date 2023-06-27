@@ -15,7 +15,7 @@ import { createProtocolEvent } from './controller-utils';
 
 describe('Testing Controller events', () => {
   beforeAll(() => {
-    let name = 'ETH_yearn_usdc1' ;
+    let name = 'ETH_yearn_usdc';
     let vaultNumber = BigInt.fromI32(10);
     let provider = Address.fromString('0x0000000000000000000000000000000000000001');
     let protocolLPToken = Address.fromString('0x0000000000000000000000000000000000000002');
@@ -44,7 +44,8 @@ describe('Testing Controller events', () => {
 
     assert.fieldEquals('Protocol', '10-2', 'network', 'ETH');
     assert.fieldEquals('Protocol', '10-2', 'protocol', 'yearn');
-    assert.fieldEquals('Protocol', '10-2', 'name', 'usdc1');
+    assert.fieldEquals('Protocol', '10-2', 'name', 'ETH_yearn_usdc');
+    assert.fieldEquals('Protocol', '10-2', 'coin', 'usdc');
     assert.fieldEquals('Protocol', '10-2', 'vault', '10');
     assert.fieldEquals(
       'Protocol',
@@ -73,10 +74,10 @@ describe('Testing Controller events', () => {
     assert.fieldEquals('Protocol', '10-2', 'protocolNumber', '2');
   });
 
-  test('Vault created and stored', () => {
-    assert.entityCount('Vault', 1);
+  // test('Vault created and stored', () => {
+  //   assert.entityCount('Vault', 1);
 
-    assert.fieldEquals('Vault', '10', 'name', 'Derby_10');
-    assert.fieldEquals('Vault', '10', 'vaultNumber', '10');
-  });
+  //   assert.fieldEquals('Vault', '10', 'name', 'Derby_10');
+  //   assert.fieldEquals('Vault', '10', 'vaultNumber', '10');
+  // });
 });

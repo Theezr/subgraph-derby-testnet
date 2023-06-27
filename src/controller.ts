@@ -6,10 +6,11 @@ import { Protocol, Vault } from '../generated/schema';
 
 export function handleAddProtocol(event: AddProtocolEvent): void {
   let protocol = new Protocol(`${event.params.vaultNumber}-${event.params.protocolNumber}`);
-  const protocolInfo = protocol.name.split("_");
+  const protocolInfo = event.params.name.split('_');
+  protocol.name = event.params.name;
   protocol.network = protocolInfo[0];
   protocol.protocol = protocolInfo[1];
-  protocol.name = protocolInfo[2];
+  protocol.coin = protocolInfo[2];
 
   protocol.vault = event.params.vaultNumber.toString();
   protocol.provider = event.params.provider;
