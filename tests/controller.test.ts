@@ -15,7 +15,7 @@ import { createProtocolEvent } from './controller-utils';
 
 describe('Testing Controller events', () => {
   beforeAll(() => {
-    let name = 'Example string value';
+    let name = 'ETH_yearn_usdc1' ;
     let vaultNumber = BigInt.fromI32(10);
     let provider = Address.fromString('0x0000000000000000000000000000000000000001');
     let protocolLPToken = Address.fromString('0x0000000000000000000000000000000000000002');
@@ -42,7 +42,9 @@ describe('Testing Controller events', () => {
   test('Protocol created and stored', () => {
     assert.entityCount('Protocol', 1);
 
-    assert.fieldEquals('Protocol', '10-2', 'name', 'Example string value');
+    assert.fieldEquals('Protocol', '10-2', 'network', 'ETH');
+    assert.fieldEquals('Protocol', '10-2', 'protocol', 'yearn');
+    assert.fieldEquals('Protocol', '10-2', 'name', 'usdc1');
     assert.fieldEquals('Protocol', '10-2', 'vault', '10');
     assert.fieldEquals(
       'Protocol',
