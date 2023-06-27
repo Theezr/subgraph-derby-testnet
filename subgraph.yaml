@@ -30,9 +30,9 @@ dataSources:
     name: Controller
     network: mumbai
     source:
-      address: '0x51a8E25B6aA05A713E1A306240AF64601468fd58'
+      address: '0x0BE4BbbD68CB89eD4b0eBEab2D774E7eD7816783'
       abi: Controller
-      startBlock: 36636330
+      startBlock: 37330777
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
