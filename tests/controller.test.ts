@@ -33,11 +33,11 @@ describe('Testing Controller events', () => {
     );
     handleAddProtocol(newProtocolEvent);
 
-    let vaultName = 'ETH_Derby_USDC_LB_10';
+    let vaultName = 'Derby_USDC_LB_10';
     let newAddVaultEvent = createAddVaultEvent(vaultNumber, vaultName);
     handleAddVault(newAddVaultEvent);
 
-    let newAddVaultEvent2 = createAddVaultEvent(BigInt.fromI32(1), 'ETH_Derby_USDC_LB_1');
+    let newAddVaultEvent2 = createAddVaultEvent(BigInt.fromI32(1), 'Derby_USDC_LB_1');
     handleAddVault(newAddVaultEvent2);
     logStore();
   });
@@ -84,7 +84,7 @@ describe('Testing Controller events', () => {
   test('Vault created and stored', () => {
     assert.entityCount('Vault', 2);
 
-    assert.fieldEquals('Vault', '10', 'name', 'ETH_Derby_USDC_LB_10');
+    assert.fieldEquals('Vault', '10', 'name', 'Derby_USDC_LB_10');
     assert.fieldEquals('Vault', '10', 'vaultNumber', '10');
     assert.fieldEquals('Vault', '10', 'network', 'ETH');
     assert.fieldEquals('Vault', '10', 'protocol', 'Derby');
