@@ -1,6 +1,6 @@
 import { newMockEvent } from 'matchstick-as';
 import { ethereum, BigInt, Address } from '@graphprotocol/graph-ts';
-import { AddProtocol, SetProtocolNumber } from '../generated/Controller/Controller';
+import { AddProtocol, AddVault, SetProtocolNumber } from '../generated/Controller/Controller';
 
 export function createProtocolEvent(
   name: string,
@@ -56,4 +56,17 @@ export function createSetProtocolNumberEvent(
   );
 
   return setProtocolNumberEvent;
+}
+
+export function createAddVaultEvent(vaultNumber: BigInt, name: string): AddVault {
+  let addVaultEvent = changetype<AddVault>(newMockEvent());
+
+  addVaultEvent.parameters = new Array();
+
+  addVaultEvent.parameters.push(
+    new ethereum.EventParam('vaultNumber', ethereum.Value.fromUnsignedBigInt(vaultNumber)),
+  );
+  addVaultEvent.parameters.push(new ethereum.EventParam('name', ethereum.Value.fromString(name)));
+
+  return addVaultEvent;
 }

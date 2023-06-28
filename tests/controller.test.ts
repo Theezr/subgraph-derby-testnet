@@ -10,8 +10,8 @@ import {
 import { BigInt, Address } from '@graphprotocol/graph-ts';
 import { Protocol } from '../generated/schema';
 import { AddProtocol as AddProtocolEvent } from '../generated/Controller/Controller';
-import { handleAddProtocol } from '../src/controller';
-import { createProtocolEvent } from './controller-utils';
+import { handleAddProtocol, handleAddVault } from '../src/controller';
+import { createAddVaultEvent, createProtocolEvent } from './controller-utils';
 
 describe('Testing Controller events', () => {
   beforeAll(() => {
@@ -32,6 +32,13 @@ describe('Testing Controller events', () => {
       protocolNumber,
     );
     handleAddProtocol(newProtocolEvent);
+
+    let vaultName = 'ETH_Derby_USDC_LB_10';
+    let newAddVaultEvent = createAddVaultEvent(vaultNumber, vaultName);
+    handleAddVault(newAddVaultEvent);
+
+    let newAddVaultEvent2 = createAddVaultEvent(BigInt.fromI32(1), 'ETH_Derby_USDC_LB_1');
+    handleAddVault(newAddVaultEvent2);
     logStore();
   });
 
@@ -74,10 +81,14 @@ describe('Testing Controller events', () => {
     assert.fieldEquals('Protocol', '10-2', 'protocolNumber', '2');
   });
 
-  // test('Vault created and stored', () => {
-  //   assert.entityCount('Vault', 1);
+  test('Vault created and stored', () => {
+    assert.entityCount('Vault', 2);
 
-  //   assert.fieldEquals('Vault', '10', 'name', 'Derby_10');
-  //   assert.fieldEquals('Vault', '10', 'vaultNumber', '10');
-  // });
+    assert.fieldEquals('Vault', '10', 'name', 'ETH_Derby_USDC_LB_10');
+    assert.fieldEquals('Vault', '10', 'vaultNumber', '10');
+    assert.fieldEquals('Vault', '10', 'network', 'ETH');
+    assert.fieldEquals('Vault', '10', 'protocol', 'Derby');
+    assert.fieldEquals('Vault', '10', 'coin', 'USDC');
+    assert.fieldEquals('Vault', '10', 'category', 'Lending Borrowing');
+  });
 });

@@ -1,3 +1,4 @@
+import { countEntities } from 'matchstick-as';
 import {
   AddProtocol as AddProtocolEvent,
   AddVault as AddVaultEvent,
@@ -28,6 +29,16 @@ export function handleAddVault(event: AddVaultEvent): void {
     vault = new Vault(event.params.vaultNumber.toString());
     vault.vaultNumber = event.params.vaultNumber;
     vault.name = event.params.vaultName;
+
+    const vaultInfo = event.params.vaultName.split('_');
+    vault.network = vaultInfo[0];
+    vault.protocol = vaultInfo[1];
+    vault.coin = vaultInfo[2];
+
+    if (vaultInfo[3].toString() == 'LB') {
+      vault.category = 'Lending Borrowing';
+    }
+
     vault.save();
   }
 }
