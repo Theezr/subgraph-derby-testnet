@@ -100,6 +100,12 @@
         "internalType": "uint256",
         "name": "vaultNumber",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
       }
     ],
     "name": "BasketId",
@@ -633,6 +639,11 @@
         "internalType": "uint256",
         "name": "_vaultNumber",
         "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
       }
     ],
     "name": "mintNewBasket",

@@ -17,9 +17,10 @@ import { createBasketIdEvent, createRebalanceBasketEvent } from './game-utils';
 describe('Testing game Events', () => {
   beforeAll(() => {
     const owner = Address.fromString('0x0000000000000000000000000000000000000001');
+    const name = 'Basket name';
     const basketId = BigInt.fromI32(123);
     const vaultNumber = BigInt.fromI32(2);
-    const newBasketIdEvent = createBasketIdEvent(owner, basketId, vaultNumber);
+    const newBasketIdEvent = createBasketIdEvent(owner, basketId, vaultNumber, name);
     handleBasketId(newBasketIdEvent);
   });
 
@@ -43,6 +44,7 @@ describe('Testing game Events', () => {
 
       assert.fieldEquals('BasketId', basketId, 'owner', owner.toHexString());
       assert.fieldEquals('BasketId', basketId, 'vault', '2');
+      assert.fieldEquals('BasketId', basketId, 'name', 'Basket name');
       assert.fieldEquals('BasketId', basketId, 'redeemedRewards', '0');
       assert.fieldEquals('BasketId', basketId, 'unredeemedRewards', '0');
     });

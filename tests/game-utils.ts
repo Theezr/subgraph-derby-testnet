@@ -6,6 +6,7 @@ export function createBasketIdEvent(
   owner: Address,
   basketId: BigInt,
   vaultNumber: BigInt,
+  name: string,
 ): BasketId {
   let basketIdEvent = changetype<BasketId>(newMockEvent());
 
@@ -20,6 +21,7 @@ export function createBasketIdEvent(
   basketIdEvent.parameters.push(
     new ethereum.EventParam('vaultNumber', ethereum.Value.fromUnsignedBigInt(vaultNumber)),
   );
+  basketIdEvent.parameters.push(new ethereum.EventParam('name', ethereum.Value.fromString(name)));
 
   return basketIdEvent;
 }

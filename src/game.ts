@@ -9,6 +9,7 @@ export function handleBasketId(event: BasketIdEvent): void {
   let basket = new BasketId(event.params.basketId.toString());
   basket.owner = event.params.owner;
   basket.vault = event.params.vaultNumber.toString();
+  basket.name = event.params.name;
   basket.redeemedRewards = BigInt.fromI32(0);
   basket.unredeemedRewards = BigInt.fromI32(0);
 
@@ -32,6 +33,6 @@ export function handleRebalanceBasket(event: RebalanceBasketEvent): void {
   basket.rebalancingPeriod = event.params.rebalancingPeriod;
   basket.unredeemedRewards = event.params.unredeemedRewards;
   basket.redeemedRewards = event.params.redeemedRewards;
-// allocated tokens
+  // allocated tokens
   basket.save();
 }

@@ -6,9 +6,9 @@ dataSources:
     name: Game
     network: mumbai
     source:
-      address: '0x0eD29B22f802E442d7598566357cAa6a0Eb86E7E'
+      address: '0xa1b862d262a827a865143945cB9601Bf5c388fA0'
       abi: Game
-      startBlock: 36627151
+      startBlock: 37582695
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -21,7 +21,7 @@ dataSources:
         - name: Game
           file: ./abis/Game.json
       eventHandlers:
-        - event: BasketId(address,uint256,uint256)
+        - event: BasketId(address,uint256,uint256,string)
           handler: handleBasketId
         - event: RebalanceBasket(uint256,uint256,int256,int256)
           handler: handleRebalanceBasket
